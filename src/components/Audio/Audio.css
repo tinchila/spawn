@@ -22,6 +22,51 @@
   width: 8rem;
 }
 
+.play-pause-button {
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-icon, .pause-icon {
+  color: white; /* Asegura que el color de los iconos sea blanco */
+}
+
+.play-icon {
+  width: 0;
+  height: 0;
+  border-left: 15px solid white; /* Triángulo blanco para play */
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.pause-icon {
+  width: 15px;
+  height: 20px;
+  position: relative;
+}
+
+.pause-icon::before, .pause-icon::after {
+  content: '';
+  display: block;
+  width: 4px; /* Ajuste del ancho de las líneas */
+  height: 100%;
+  background-color: white;
+  position: absolute;
+}
+
+.pause-icon::before {
+  left: 1px; /* Posiciona la primera línea */
+}
+
+.pause-icon::after {
+  right: 1px; /* Posiciona la segunda línea */
+}
+
 .volume-slider {
   width: 5rem;
   margin-left: 10px;
@@ -37,4 +82,37 @@
   appearance: none;
   width: 15px;
   height: 15px;
-  borde
+  border-radius: 50%;
+  background: white; /* Botón del deslizador verde oscuro */
+  cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #039d01;
+  cursor: pointer;
+}
+
+@media (max-width:770px) {
+  .audio-player {
+    bottom: 20rem;
+    flex-direction: column;
+  }
+  .toggle-button {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width:580px) {
+  .audio-player {
+    right: 2rem;
+  }
+  .toggle-button {
+    width: 50px;
+    height: 50px;
+  }
+}
+
