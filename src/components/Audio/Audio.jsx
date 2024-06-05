@@ -4,7 +4,7 @@ import audioIcon from '../../assets/audio2.png';
 import audioFile from '../../audio/remember.mp3';
 
 const Audio = () => {
-  const [isPlaying, setIsPlaying] = useState(false); // Cambiado a true para reflejar el estado inicial de reproducción
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [volume, setVolume] = useState(1);
 
@@ -55,7 +55,7 @@ const Audio = () => {
 
   const changeVolume = (event) => {
     const audioElement = document.getElementById('intro');
-    const newVolume = event.target.value;
+    const newVolume = parseFloat(event.target.value);
     if (audioElement) {
       audioElement.volume = newVolume;
     }
