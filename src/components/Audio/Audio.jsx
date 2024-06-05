@@ -15,7 +15,8 @@ const Audio = () => {
       audioElement.volume = volume;
       audioElement.play().then(() => {
         setIsPlaying(true);
-      }).catch((error) => console.error('Error al reproducir el audio:', error));
+        console.log('Audio is playing'); // Debugging line
+      }).catch((error) => console.error('Error playing audio:', error));
     }
   }, [volume]);
 
@@ -24,7 +25,8 @@ const Audio = () => {
     if (audioElement && !isPlaying) {
       audioElement.play().then(() => {
         setIsPlaying(true);
-      }).catch((error) => console.error('Error al reproducir el audio:', error));
+        console.log('Audio started playing on user interaction'); // Debugging line
+      }).catch((error) => console.error('Error playing audio on user interaction:', error));
     }
   }, [isPlaying]);
 
@@ -46,7 +48,7 @@ const Audio = () => {
         audioElement.play().then(() => {
           console.log('Playing audio'); // Debugging line
           setIsPlaying(true);
-        }).catch((error) => console.error('Error al reproducir el audio:', error));
+        }).catch((error) => console.error('Error playing audio:', error));
       } else {
         console.log('Pausing audio'); // Debugging line
         audioElement.pause();
