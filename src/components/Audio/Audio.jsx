@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import './Audio.css';
 import audioIcon from '../../assets/audio2.png';
 
@@ -19,26 +19,6 @@ const Audio = () => {
       }).catch((error) => console.error('Error playing audio:', error));
     }
   }, [volume]);
-
-  const handleUserInteraction = useCallback(() => {
-    const audioElement = getAudioElement();
-    if (audioElement && !isPlaying) {
-      audioElement.play().then(() => {
-        setIsPlaying(true);
-        console.log('Audio started playing on user interaction'); // Debugging line
-      }).catch((error) => console.error('Error playing audio on user interaction:', error));
-    }
-  }, [isPlaying]);
-
-  useEffect(() => {
-    document.addEventListener('click', handleUserInteraction);
-    document.addEventListener('scroll', handleUserInteraction);
-
-    return () => {
-      document.removeEventListener('click', handleUserInteraction);
-      document.removeEventListener('scroll', handleUserInteraction);
-    };
-  }, [handleUserInteraction]);
 
   const togglePlay = () => {
     const audioElement = getAudioElement();
