@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import './Audio.css';
 import audioIcon from '../../assets/audio2.png';
-import audioFile from '../../audio/remember.mp3' ;
+import audioFile from '../../audio/remember.mp3';
 
 const Audio = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true); // Cambiado a true para reflejar el estado inicial de reproducción
   const [isVisible, setIsVisible] = useState(false);
   const [volume, setVolume] = useState(1);
 
@@ -38,14 +38,14 @@ const Audio = () => {
   const togglePlay = () => {
     const audioElement = document.getElementById('intro');
     if (audioElement) {
-      if (isPlaying) {
-        audioElement.pause();
-      } else {
+      if (audioElement.paused) {
         audioElement.play().then(() => {
           setIsPlaying(true);
         }).catch((error) => console.error('Error al reproducir el audio:', error));
+      } else {
+        audioElement.pause();
+        setIsPlaying(false);
       }
-      setIsPlaying(!isPlaying);
     }
   };
 
