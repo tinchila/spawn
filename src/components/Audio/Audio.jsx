@@ -4,20 +4,33 @@ import audioIcon from '../../assets/audio2.png';
 import audioFile from '../../audio/remember.mp3';
 
 const Audio = () => {
-  const [isPlaying, setIsPlaying] = useState(true); // Autoplay inicial
+  const [isPlaying, setIsPlaying] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
   const [volume, setVolume] = useState(1);
-  const audioRef = useRef(null); // Uso de useRef para referenciar el elemento audio
+  const audioRef = useRef(null);
 
   useEffect(() => {
-    // Ajustando volumen y reproducción automática
+    // Intentar reproducir automáticamente al cargar
+    const playAudio = async () => {
+      if (audioRef.current) {
+        try {
+          await audioRef.current.play();
+          setIsPlaying(true);
+        } catch (error) {
+          console.error("Error al intentar reproducir automáticamente:", error);
+          setIsPlaying(false); // Ajustar según si se puede reproducir o no
+        }
+      }
+    };
+    playAudio();
+  }, []);
+
+  useEffect(() => {
+    // Ajustar volumen siempre que cambie
     if (audioRef.current) {
       audioRef.current.volume = volume;
-      if (isPlaying) {
-        audioRef.current.play();
-      }
     }
-  }, [volume, isPlaying]);
+  }, [volume]);
 
   const togglePlay = () => {
     if (audioRef.current) {
@@ -36,12 +49,12 @@ const Audio = () => {
   };
 
   const changeVolume = (event) => {
-    setVolume(event.target.value);
+    setVolume(parseFloat(event.target.value));
   };
 
   return (
     <div className="audio-player">
-      <audio ref={audioRef} id="intro" src={audioFile} autoPlay loop type="audio/mp3"></audio>
+      <audio ref={audioRef} src={audioFile} loop type="audio/mp3"></audio>
       <img
         src={audioIcon}
         alt="Toggle Player"
