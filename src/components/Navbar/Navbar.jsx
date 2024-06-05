@@ -1,3 +1,19 @@
+import { useState, useEffect } from 'react';
+import './Navbar.css';
+import logo from '../../assets/logoweb.png';
+import { Link, animateScroll as scroll } from 'react-scroll';
+import menu from '../../assets/menu.png';
+
+const createParticles = (container, num) => {
+  for (let i = 0; i < num; i++) {
+    let particle = document.createElement("div");
+    particle.className = "particle";
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.animationDelay = `${Math.random()}s`;
+    container.appendChild(particle);
+  }
+};
+
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
 
