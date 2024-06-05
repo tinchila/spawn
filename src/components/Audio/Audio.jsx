@@ -1,38 +1,39 @@
 import { useState, useEffect } from 'react';
 import './Audio.css';
-import audioIcon from '../../assets/audio2.png'; // Importar la imagen del icono de audio
-import audioFile from '../../assets/remember.mp3'; // Importar el archivo de audio
+import audioIcon from '../../assets/audio2.png';
+import audioFile from '../../assets/remember.mp3'; // Asegúrate de que la ruta sea correcta y el archivo esté en formato MP3
 
 const Audio = () => {
-  const [isPlaying, setIsPlaying] = useState(false); // Asumimos que se inicia sin reproducir
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [volume, setVolume] = useState(1); // Volumen inicial al máximo
-
-  useEffect(() => {
-    const audioElement = document.getElementById('intro');
-
-    const playAudio = () => {
-      if (audioElement) {
-        audioElement.play().catch((error) => console.error('Error al reproducir el audio:', error));
-        setIsPlaying(true);
-        document.removeEventListener('click', playAudio);
-      }
-    };
-
-    document.addEventListener('click', playAudio);
-
-    return () => {
-      document.removeEventListener('click', playAudio);
-    };
-  }, []);
+  const [volume, setVolume] = useState(1);
 
   useEffect(() => {
     const audioElement = document.getElementById('intro');
     if (audioElement) {
-      audioElement.loop = true; // Aseguramos que el audio se repita
-      audioElement.volume = volume; // Establecemos el volumen inicial
+      audioElement.loop = true;
+      audioElement.volume = volume;
     }
   }, [volume]);
+
+  const handleUserInteraction = () => {
+    const audioElement = document.getElementById('intro');
+    if (audioElement && !isPlaying) {
+      audioElement.play().then(() => {
+        setIsPlaying(true);
+      }).catch((error) => console.error('Error al reproducir el audio:', error));
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleUserInteraction);
+    document.addEventListener('scroll', handleUserInteraction);
+
+    return () => {
+      document.removeEventListener('click', handleUserInteraction);
+      document.removeEventListener('scroll', handleUserInteraction);
+    };
+  }, [isPlaying]);
 
   const togglePlay = () => {
     const audioElement = document.getElementById('intro');
@@ -40,7 +41,9 @@ const Audio = () => {
       if (isPlaying) {
         audioElement.pause();
       } else {
-        audioElement.play().catch((error) => console.error('Error al reproducir el audio:', error));
+        audioElement.play().then(() => {
+          setIsPlaying(true);
+        }).catch((error) => console.error('Error al reproducir el audio:', error));
       }
       setIsPlaying(!isPlaying);
     }
@@ -51,17 +54,17 @@ const Audio = () => {
   };
 
   const changeVolume = (event) => {
-    const newVolume = event.target.value;
-    setVolume(newVolume);
     const audioElement = document.getElementById('intro');
+    const newVolume = event.target.value;
     if (audioElement) {
       audioElement.volume = newVolume;
     }
+    setVolume(newVolume);
   };
 
   return (
     <div className="audio-player">
-      <audio id="intro" src={audioFile} />
+      <audio id="intro" src={audioFile} type="audio/mp3"></audio>
       <img
         src={audioIcon}
         alt="Toggle Player"
