@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './Audio.css';
 import audioIcon from '../../assets/audio2.png';
 import audioFile from '../../audio/remember.mp3';
@@ -16,14 +16,14 @@ const Audio = () => {
     }
   }, [volume]);
 
-  const handleUserInteraction = () => {
+  const handleUserInteraction = useCallback(() => {
     const audioElement = document.getElementById('intro');
     if (audioElement && !isPlaying) {
       audioElement.play().then(() => {
         setIsPlaying(true);
       }).catch((error) => console.error('Error al reproducir el audio:', error));
     }
-  };
+  }, [isPlaying]);
 
   useEffect(() => {
     document.addEventListener('click', handleUserInteraction);
@@ -33,7 +33,7 @@ const Audio = () => {
       document.removeEventListener('click', handleUserInteraction);
       document.removeEventListener('scroll', handleUserInteraction);
     };
-  }, [isPlaying]);
+  }, [handleUserInteraction]);
 
   const togglePlay = () => {
     const audioElement = document.getElementById('intro');
@@ -54,8 +54,8 @@ const Audio = () => {
   };
 
   const changeVolume = (event) => {
-    const audioElement = document.getElementById('intro');
     const newVolume = parseFloat(event.target.value);
+    const audioElement = document.getElementById('intro');
     if (audioElement) {
       audioElement.volume = newVolume;
     }
