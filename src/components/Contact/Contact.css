@@ -1,0 +1,101 @@
+#contactPage{
+    min-height: calc(100vh - 4.5rem);
+    width: 100vw;
+    max-width: 60rem;
+    margin: 4rem auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../assets/spawn.png);
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: 2rem;
+}
+
+.contactPageTitle{
+    color: rgb(54, 237, 72);
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+}
+
+.contactDesc{
+    padding: 1rem;
+    font-size: medium;
+    font-weight: 300;
+}
+
+.contactForm {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    max-width: 60rem;
+
+}
+
+.name, .email, .msg {
+    font-size: medium;
+    width: 100%;
+    max-width: 40rem;
+    margin: 0.5rem;
+    padding: 0.rem 1rem;
+    color: white;
+    border: solid rgb(11, 188, 11) 1px;
+    border-radius: 0.rem;
+    background: rgb(40, 40, 40);
+}
+
+.submitBtn{
+    border: none;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    padding: 0.75rem 2.5rem;
+    cursor: pointer;
+}
+
+.enviarBtn{
+    height: 5rem;
+    width: 5rem;
+}
+
+
+.links {
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+.link{
+    object-fit: cover;
+    height: 3rem;
+    width: 3rem;
+    margin: 0 0.75rem;
+}
+.link:hover{
+    scale: 1.2;
+}
+
+.custom-confirm-button {
+    border: 1px solid #78ff30; /* Color del borde amarillo */
+    color: #30ff67; /* Color del texto amarillo */
+    background: transparent; /* Fondo transparente */
+  }
+  
+  .custom-confirm-button:hover {
+    background: #30ff30; /* Color de fondo amarillo al pasar el ratón */
+  }
+
+@media (max-width:900px) {
+  }
+
+
+
+@media (max-width:400px) {
+    .link{
+        height: 2rem;
+        width: 2rem;
+    }
+}

@@ -1,0 +1,154 @@
+/* Variables CSS para el efecto de smog */
+:root {
+  --smogColor1: rgb(21, 67, 19);
+  --smogColor2: rgba(33, 220, 43, 0);
+  --smogDuration: 2s;
+  --smogSize: 40px;  /* Ajusta según el tamaño de tu botón */
+}
+
+.navbar {
+  background: rgb(10, 10, 10);
+  height: 7rem;
+  width: 100vw;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.logo {
+  object-fit: cover;
+  height: 5rem;
+  width: 15rem;
+  cursor: pointer;
+  animation: animation .65s ease-in-out infinite alternate;
+  -moz-animation: animation .65s ease-in-out infinite alternate;
+  -webkit-animation: animation .65s ease-in-out infinite alternate;
+  -o-animation: animation .65s ease-in-out infinite alternate;
+}
+
+.desktopMenuListItem {
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.desktopMenuListItem:hover {
+  color: rgb(54, 237, 72);
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid rgb(54, 237, 72);
+}
+
+.logo-link {
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit; /* Establece el color de texto como el color predeterminado */
+}
+
+.desktopMenuBtn {
+  position: relative; /* Necesario para posicionar elementos dentro del botón */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 1rem;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.desktopMenuBtn .smog-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.desktopMenuImg {
+  object-fit: cover;
+  height: 7rem;
+  width: 7rem;
+  margin-right: -3rem;
+}
+
+.desktopMenuBtn {
+  cursor: pointer;
+}
+
+.active {
+  color: rgb(54, 237, 72);
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid rgb(54, 237, 72);
+}
+
+.mobMenu {
+  display: none;
+  object-fit: cover;
+  height: 4rem;
+}
+
+.navMenu {
+  position: absolute;
+  top: 4rem;
+  right: 2rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  height: fit-content;
+  min-width: 15rem;
+  background: rgb(40, 40, 40);
+  border: 1rem;
+}
+
+.listItem {
+  color: white;
+  padding: 0.5rem 3rem;
+  margin: 0.25rem;
+  background: rgb (30, 30, 30);
+}
+
+.smog-container{
+  color:green;
+}
+
+.particle {
+  animation: rise var(--smogDuration) ease-in infinite;
+  background-image: radial-gradient(var(--smogColor1) 30%, var(--smogColor2) 70%);
+  border-radius: 70%;
+  mix-blend-mode: screen;
+  opacity: 0;
+  position: absolute;
+  bottom: 2;
+  width: var(--smogSize);
+  height: var(--smogSize);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10em) scale(0);
+  }
+}
+
+@media screen and (max-width:720px) {
+  .mobMenu {
+    display: flex;
+  }
+  .desktopMenu {
+    display: none;
+  }
+  .desktopMenuBtn {
+    display: none;
+  }
+}

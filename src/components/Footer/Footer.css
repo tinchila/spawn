@@ -1,0 +1,18 @@
+.footer{
+    width: 100vw;
+    height: 5rem;
+    background: rgb(10, 10, 10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: 300;
+    font-size: small;
+    color: rgb(38, 122, 47);
+}
+.span{
+    margin-bottom: 1rem;
+    color: rgb(81, 81, 81);
+    width: 100vw;
+    border: solid 1px;
+}

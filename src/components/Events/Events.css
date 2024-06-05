@@ -1,0 +1,134 @@
+.events{
+    background-color: rgb (20, 20, 20);
+    color: #fff;
+    overflow: hidden;
+    width: 100vw;
+    max-width: 65rem;
+    margin: 0 auto;
+    box-shadow: 0px 0x 0px 0px rgba(0,217,34,0.76);
+    -webkit-box-shadow: -2px -2px 94px -18px rgba(0,217,34,0.76);
+    -moz-box-shadow: -2px -2px 94px -18px rgba(0,217,34,0.76);
+    border-radius: 2%;
+}
+.contenido-seccion{
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.events h2{
+    font-size: 3rem;
+    text-align: center;
+    padding: 0 1rem;
+    color: rgb(54, 237, 72);
+    margin: 1rem 0;
+}
+
+.events .fila{
+    display: flex;
+    justify-content: space-between;
+}
+.events .fila .col{
+    width: 49%;
+    padding: 0 20px;
+}
+.events .fila .col h3{
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+.events .fila .izquierda{
+    border-right: 2px solid rgb(32, 200, 26);
+}
+.events .fila .derecha{
+    border-left: 2px solid rgb(32, 200, 26);
+}
+.events .fila .item{
+    padding: 25px;
+    margin-bottom: 30px;
+    background-color: rgb(50, 50, 50);
+    position: relative;
+}
+.events .fila .item h4{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.events .fila .item .casa{
+    color: rgb(48, 255, 55);
+    font-size: 22px;
+    font-weight: bold;
+    display: block;
+}
+.events .fila .item .fecha{
+    display: block;
+    color: rgb(48, 255, 55);
+    margin-bottom: 10px;
+}
+.events .fila .item p{
+    line-height: 24px;
+}
+.events .fila .izq{
+    border-right: 2px solid rgb(48, 255, 55);
+    margin-right: 20px;
+}
+.events .fila .der{
+    border-left: 2px solid rgb(48, 255, 55);
+    margin-left: 20px;
+}
+
+
+@media screen and (max-width:580px){
+    .events{
+        background-color: rgb (20, 20, 20);
+        color: #fff;
+        overflow: hidden;
+        width: 130vw;
+        max-width: 100%;
+        margin: 5px;
+    }
+    .contenido-seccion{
+        max-width: 90%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 0.5rem;
+    }
+
+    .events .fila{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .events h2{
+        font-size: 3rem;
+        text-align: center;
+        padding: 0 1rem;
+        margin: 1rem 0;
+    }
+    
+    .events h3{
+        font-size: 1rem;
+        text-align: center;
+        padding: 0 2rem;
+        margin: 0.5rem;
+    }
+    .events .fila{
+        display: flex;
+        justify-content: space-between;
+    }
+    .events .fila .col{
+        width: 110%;
+        padding: 0.5px;
+    }
+    .events .fila .col .derecha{
+        width: 120%;
+        padding: 0 20px;
+    }
+}
