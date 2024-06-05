@@ -4,7 +4,7 @@ import audioIcon from '../../assets/audio2.png';
 import audioFile from '../../audio/remember.mp3';
 
 const Audio = () => {
-  const [isPlaying, setIsPlaying] = useState(true); // Cambiado a true para reflejar el estado inicial de reproducción
+  const [isPlaying, setIsPlaying] = useState(false); // Cambiado a true para reflejar el estado inicial de reproducción
   const [isVisible, setIsVisible] = useState(false);
   const [volume, setVolume] = useState(1);
 
