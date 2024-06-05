@@ -7,14 +7,15 @@ const Audio = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [volume, setVolume] = useState(1);
 
-  // Function to get the audio element
   const getAudioElement = () => document.getElementById('intro');
 
   useEffect(() => {
     const audioElement = getAudioElement();
     if (audioElement) {
       audioElement.volume = volume;
-      setIsPlaying(!audioElement.paused);
+      audioElement.play().then(() => {
+        setIsPlaying(true);
+      }).catch((error) => console.error('Error al reproducir el audio:', error));
     }
   }, [volume]);
 
@@ -53,7 +54,6 @@ const Audio = () => {
       }
     }
   };
-  
 
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
