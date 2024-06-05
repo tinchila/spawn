@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import './Audio.css';
 import audioIcon from '../../assets/audio2.png';
-import audioFile from '../../audio/remember.mp3';
 
 const Audio = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -11,8 +10,8 @@ const Audio = () => {
   useEffect(() => {
     const audioElement = document.getElementById('intro');
     if (audioElement) {
-      audioElement.loop = true;
       audioElement.volume = volume;
+      setIsPlaying(!audioElement.paused);  // Inicializa el estado según el estado actual del audio
     }
   }, [volume]);
 
@@ -64,7 +63,6 @@ const Audio = () => {
 
   return (
     <div className="audio-player">
-      <audio id="intro" src={audioFile} type="audio/mp3"></audio>
       <img
         src={audioIcon}
         alt="Toggle Player"
