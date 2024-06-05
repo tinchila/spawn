@@ -4,6 +4,7 @@ import logo from '../../assets/logoweb.png';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import menu from '../../assets/menu.png';
 
+// Función para crear las partículas de smog
 const createParticles = (container, num) => {
   for (let i = 0; i < num; i++) {
     let particle = document.createElement("div");
