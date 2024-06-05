@@ -1,49 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Audio.css';
 import audioIcon from '../../assets/audio2.png';
 import audioFile from '../../audio/remember.mp3';
 
 const Audio = () => {
-  const [isPlaying, setIsPlaying] = useState(true); // Cambiado a true para reflejar el estado inicial de reproducción
+  const [isPlaying, setIsPlaying] = useState(true); // Autoplay inicial
   const [isVisible, setIsVisible] = useState(false);
   const [volume, setVolume] = useState(1);
+  const audioRef = useRef(null); // Uso de useRef para referenciar el elemento audio
 
   useEffect(() => {
-    const audioElement = document.getElementById('intro');
-    if (audioElement) {
-      audioElement.loop = true;
-      audioElement.volume = volume;
+    // Ajustando volumen y reproducción automática
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+      if (isPlaying) {
+        audioRef.current.play();
+      }
     }
-  }, [volume]);
-
-  const handleUserInteraction = () => {
-    const audioElement = document.getElementById('intro');
-    if (audioElement && !isPlaying) {
-      audioElement.play().then(() => {
-        setIsPlaying(true);
-      }).catch((error) => console.error('Error al reproducir el audio:', error));
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('click', handleUserInteraction);
-    document.addEventListener('scroll', handleUserInteraction);
-
-    return () => {
-      document.removeEventListener('click', handleUserInteraction);
-      document.removeEventListener('scroll', handleUserInteraction);
-    };
-  }, [isPlaying]);
+  }, [volume, isPlaying]);
 
   const togglePlay = () => {
-    const audioElement = document.getElementById('intro');
-    if (audioElement) {
-      if (audioElement.paused) {
-        audioElement.play().then(() => {
-          setIsPlaying(true);
-        }).catch((error) => console.error('Error al reproducir el audio:', error));
+    if (audioRef.current) {
+      if (audioRef.current.paused) {
+        audioRef.current.play();
+        setIsPlaying(true);
       } else {
-        audioElement.pause();
+        audioRef.current.pause();
         setIsPlaying(false);
       }
     }
@@ -54,17 +36,12 @@ const Audio = () => {
   };
 
   const changeVolume = (event) => {
-    const audioElement = document.getElementById('intro');
-    const newVolume = event.target.value;
-    if (audioElement) {
-      audioElement.volume = newVolume;
-    }
-    setVolume(newVolume);
+    setVolume(event.target.value);
   };
 
   return (
     <div className="audio-player">
-      <audio id="intro" src={audioFile} type="audio/mp3"></audio>
+      <audio ref={audioRef} id="intro" src={audioFile} autoPlay loop type="audio/mp3"></audio>
       <img
         src={audioIcon}
         alt="Toggle Player"
@@ -74,11 +51,7 @@ const Audio = () => {
       {isVisible && (
         <div className="controls">
           <button className="play-pause-button" onClick={togglePlay}>
-            {isPlaying ? (
-              <div className="pause-icon"></div>
-            ) : (
-              <div className="play-icon"></div>
-            )}
+            {isPlaying ? <div className="pause-icon"></div> : <div className="play-icon"></div>}
           </button>
           <input
             type="range"
