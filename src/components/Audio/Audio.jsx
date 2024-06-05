@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './Audio.css';
 import audioIcon from '../../assets/audio2.png';
-import audioFile from '../../assets/remember.mp3'; // Asegúrate de que la ruta sea correcta y el archivo esté en formato MP3
+import audioFile from '../../audio/remember.mp3' ;
 
 const Audio = () => {
   const [isPlaying, setIsPlaying] = useState(false);
