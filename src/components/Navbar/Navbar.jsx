@@ -23,18 +23,18 @@ const Navbar = () => {
     createParticles(smogContainer, 20, 40);
   }, []);
 
-  const scrollToTopPage = () => {
+  const handleLogoClick = () => {
     scroll.scrollToTop({
-      duration: 200,
+      duration: 500,
       smooth: 'easeInOutQuart',
     });
   };
 
   return (
     <nav className='navbar'>
-      <Link to='intro' spy={true} smooth={true} offset={-100} duration={500} className='logo-link' onClick={scrollToTopPage}>
+     <div className='logo-link' onClick={handleLogoClick}>
         <img src={logo} alt='Logo' className='logo' />
-      </Link>
+      </div>
       <div className='desktopMenu'>
         <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={500} className='desktopMenuListItem'>Home</Link>
         <Link activeClass='active' to='about' spy={true} smooth={true} offset={-50} duration={500} className='desktopMenuListItem'>Bio</Link>
