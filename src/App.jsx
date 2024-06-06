@@ -6,6 +6,7 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import About from "./components/About/About";
 import Audio from "./components/Audio/Audio";
+import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton";
 
 
 
@@ -20,6 +21,7 @@ function App() {
       <Contact />
       <Audio />
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 }
