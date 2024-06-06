@@ -20,7 +20,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const smogContainer = document.getElementById("smog-container");
-    createParticles(smogContainer, 20, 40);
+    createParticles(smogContainer, 20);
   }, []);
 
   const handleLogoClick = () => {
@@ -30,13 +30,21 @@ const Navbar = () => {
     });
   };
 
+  const handleHomeClick = () => {
+    scroll.scrollToTop({
+      duration: 500,
+      smooth: 'easeInOutQuart',
+    });
+  };
+
   return (
     <nav className='navbar'>
-     <div className='logo-link' onClick={handleLogoClick}>
+      <div className='logo-link' onClick={handleLogoClick}>
         <img src={logo} alt='Logo' className='logo' />
       </div>
       <div className='desktopMenu'>
-        <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={500} className='desktopMenuListItem'>Home</Link>
+        {/* Usamos handleHomeClick para Home */}
+        <div onClick={handleHomeClick} className='desktopMenuListItem'>Home</div>
         <Link activeClass='active' to='about' spy={true} smooth={true} offset={-50} duration={500} className='desktopMenuListItem'>Bio</Link>
         <Link activeClass='active' to='events' spy={true} smooth={true} offset={-50} duration={500} className='desktopMenuListItem'>Events</Link>
         <Link activeClass='active' to='works' spy={true} smooth={true} offset={-50} duration={500} className='desktopMenuListItem'>Tracks</Link>
@@ -51,7 +59,7 @@ const Navbar = () => {
       </button>
       <img src={menu} alt='Menu' className='mobMenu' onClick={() => setShowMenu(!showMenu)} />
       <div className='navMenu' style={{ display: showMenu ? 'flex' : 'none' }}>
-        <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={500} className='listItem' onClick={() => setShowMenu(false)}>Home</Link>
+        <div onClick={() => { handleHomeClick(); setShowMenu(false); }} className='listItem'>Home</div>
         <Link activeClass='active' to='about' spy={true} smooth={true} offset={-50} duration={500} className='listItem' onClick={() => setShowMenu(false)}>Bio</Link>
         <Link activeClass='active' to='events' spy={true} smooth={true} offset={-50} duration={500} className='listItem' onClick={() => setShowMenu(false)}>Events</Link>
         <Link activeClass='active' to='works' spy={true} smooth={true} offset={-50} duration={500} className='listItem' onClick={() => setShowMenu(false)}>Tracks</Link>
