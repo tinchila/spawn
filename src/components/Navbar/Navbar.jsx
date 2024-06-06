@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './Navbar.css';
 import logo from '../../assets/logoweb.png';
 import { Link, animateScroll as scroll } from 'react-scroll';
@@ -6,24 +6,6 @@ import menu from '../../assets/menu.png';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
-
-  useEffect(() => {
-    const createParticles = () => {
-      const container = document.getElementById("contact-smog-container");
-      if (container) {
-        for (let i = 0; i < 20; i++) {
-          let particle = document.createElement("div");
-          particle.className = "particle";
-          particle.style.left = `${Math.random() * 100}%`;
-          particle.style.animationDelay = `${Math.random()}s`;
-          container.appendChild(particle);
-        }
-      } else {
-        console.log('Container not found');
-      }
-    };
-    createParticles();
-  }, []);
 
   const handleLogoClick = () => {
     scroll.scrollToTop({
@@ -55,9 +37,6 @@ const Navbar = () => {
         <Link activeClass='active' to='events' spy={true} smooth={true} offset={-50} duration={500} className='listItem' onClick={() => setShowMenu(false)}>Events</Link>
         <Link activeClass='active' to='works' spy={true} smooth={true} offset={-50} duration={500} className='listItem' onClick={() => setShowMenu(false)}>Tracks</Link>
         <div className='listItem' onClick={handleContactClick}>Contact</div>
-      </div>
-      <div className="smog-container" id="contact-smog-container">
-        {/* Partículas */}
       </div>
     </nav>
   );
