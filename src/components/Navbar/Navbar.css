@@ -53,6 +53,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-right: 1rem;
   border: none;
   color: white;
   font-weight: 600;
@@ -64,6 +65,17 @@
   bottom: 0;
   width: 100%;
   height: 100%;
+}
+
+.desktopMenuImg {
+  object-fit: cover;
+  height: 7rem;
+  width: 7rem;
+  margin-right: -3rem;
+}
+
+.desktopMenuBtn {
+  cursor: pointer;
 }
 
 .active {
@@ -96,7 +108,37 @@
   color: white;
   padding: 0.5rem 3rem;
   margin: 0.25rem;
-  background: rgb(30, 30, 30);
+  background: rgb (30, 30, 30);
+}
+
+.smog-container{
+  color:green;
+}
+
+.particle {
+  animation: rise var(--smogDuration) ease-in infinite;
+  background-image: radial-gradient(var(--smogColor1) 30%, var(--smogColor2) 70%);
+  border-radius: 70%;
+  mix-blend-mode: screen;
+  opacity: 0;
+  position: absolute;
+  bottom: 2;
+  width: var(--smogSize);
+  height: var(--smogSize);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10em) scale(0);
+  }
 }
 
 @media screen and (max-width:720px) {
