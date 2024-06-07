@@ -52,7 +52,7 @@ const Events = () => {
                     <h4>Euphoria - Sound Club</h4>
                     <span className="casa">Spawn - Coy - Gaspar</span>
                     <span className="fecha">07.09.23 - 22.00 hs ARG.</span>
-                    <p>DJ principal en SoundClubUshuaia de la mano de Euphoria Eventos en Nautico Disco - Ushuaia.</p>
+                    <p>DJ principal en SoundClub Ushuaia de la mano de Euphoria Eventos en Nautico Disco - Ushuaia.</p>
                     <div className="conectord">
                         <div className="circulod"></div>
                     </div>
@@ -70,7 +70,7 @@ const Events = () => {
                     <h4>Groove Family</h4>
                     <span className="casa">Episodio 23 - Spawn</span>
                     <span className="fecha">20.10.20 - 21.00 hs ARG.</span>
-                    <p>Ciclo Techno de Groove Family Cordoba para la Sesion N° 23 en directo.</p>
+                    <p>Ciclo Techno de Groove Family Córdoba para la Sesion N° 23 en directo.</p>
                     <div className="conectord">
                         <div className="circulod"></div>
                     </div>
