@@ -53,7 +53,7 @@
 .workImg {
     width: 100%;
     height: 300px; /* Altura fija para la imagen */
-    object-fit: contain; /* Cubre el área asignada sin perder la proporción */
+    object-fit: cover;
     border: 1px solid rgba(255, 255, 255, 0.222);
     filter: blur(1px);
     -webkit-filter: blur(1px);

@@ -70,7 +70,7 @@ const Contact = () => {
   };
 
   return (
-    <section id='contactPage'>
+    <section id='contactPage' className='contactPage'>
       <div id='contact'>
         <h1 className='contactPageTitle'>Contact Me</h1>
         <span className='contactDesc'>Por favor llena el formulario debajo para discutir por posibles oportunidades de trabajo, eventos o reservar para First Move.</span>

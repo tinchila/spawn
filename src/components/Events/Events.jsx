@@ -61,7 +61,7 @@ const Events = () => {
                     <h4>BNP Club</h4>
                     <span className="casa">ANNA - Analog Jungs - Spawn</span>
                     <span className="fecha">15.07.23 - 23.00 hs ARG.</span>
-                    <p>Open sessions for Buenas Noches Producciones in Palacio Alcina - Córdoba</p>
+                    <p>Open sessions for Buenas Noches Producciones in Palacio Alcina - Córdoba.</p>
                     <div className="conectord">
                         <div className="circulod"></div>
                     </div>
@@ -70,7 +70,7 @@ const Events = () => {
                     <h4>Groove Family</h4>
                     <span className="casa">Episodio 23 - Spawn</span>
                     <span className="fecha">20.10.20 - 21.00 hs ARG.</span>
-                    <p>Ciclo Techno de Groove Family Córdoba para la Sesion N° 23 en directo.</p>
+                    <p>Ciclo Techno de Groove Family Córdoba para la Sesion N° 23 en directo - Córdoba.</p>
                     <div className="conectord">
                         <div className="circulod"></div>
                     </div>
@@ -79,7 +79,7 @@ const Events = () => {
                     <h4>Streaming</h4>
                     <span className="casa">Spawn Sesions With Cajal Music</span>
                     <span className="fecha">10.04.20 - 22.30 hs ARG.</span>
-                    <p>Live streaming realizado junto a @cajal.music - Córdoba</p>
+                    <p>Live streaming realizado junto a @cajal.music - Córdoba.</p>
                     <div className="conectord">
                         <div className="circulod"></div>
                     </div>

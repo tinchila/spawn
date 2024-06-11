@@ -8,10 +8,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(../../assets/spawn.png);
-    background-repeat: no-repeat;
-    background-position-x: left;
-    background-position-y: 2rem;
 }
 
 .contactPageTitle{
@@ -34,6 +30,9 @@
     justify-content: center;
     width: 90vw;
     max-width: 60rem;
+    background-image: url(../../assets/spawn.png);
+    background-repeat:no-repeat;
+    background-size:34%;
 
 }
 
@@ -62,7 +61,6 @@
     width: 5rem;
 }
 
-
 .links {
     display: flex;
     flex-wrap: wrap; 
@@ -88,9 +86,30 @@
     background: #30ff30; /* Color de fondo amarillo al pasar el ratón */
   }
 
-@media (max-width:900px) {
-  }
+@media (max-width:1050px) {
+    .contactForm {
+        background-size:30%;
+        background-position-x: -2rem;
+    }
+}
 
+@media (max-width:950px) {
+    .contactForm {
+        background-image: none;
+    }
+    .contactPage{
+        background-image: url(../../assets/spawn.png);
+        background-repeat:no-repeat;
+        background-size:30%;
+        background-position-y: -1rem;
+    }
+}
+
+@media (max-width:585px) {
+    .contactPage{
+        background-size: 50%;
+    }
+}
 
 
 @media (max-width:400px) {

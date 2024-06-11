@@ -28,13 +28,12 @@
     justify-content: center;
     flex-wrap: wrap;
     width: 100vw;
-    max-width: 85rem;
+    max-width: 100rem;
 }
 
 .worksImg{
     object-fit: cover;
     height: 40rem;
-    margin: 0.5rem;
 }
 
 .workBtn{
