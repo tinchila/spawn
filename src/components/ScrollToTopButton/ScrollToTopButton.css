@@ -25,3 +25,8 @@
     height: 2.5rem;
   }
   
+  @media (max-width: 800px){
+    .scroll-to-top {
+      right: 0rem;
+    }
+  }

@@ -133,7 +133,9 @@
 
 @media screen and (max-width:480px) {
     .bg{
-        right: -20vw;
+        top: 5rem;
+        right: 0;
+        width: 100%;
     }
     .btn{
         width: 20vw;
